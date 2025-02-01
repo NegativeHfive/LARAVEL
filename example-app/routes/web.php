@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+use App\Http\Controllers\PlanetController;
 
-Route::get('/web.php', function () {
-    return view('planeten');
-});
 
-Route::get('/goku.php', function () {
-    return view('planeten');
-});
+
+Route::get('/planets', [PlanetController::class, 'index'])->name('planets.index');
+Route::get('/planets/{planet}', [PlanetController::class, 'show']);
