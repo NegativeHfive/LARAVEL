@@ -9,9 +9,10 @@
 
     <h1>Planets</h1>
     <ul>
-        @foreach ($planets as $name => $description)
+        @foreach ($planets as $planet)
             <li>
-                <a href="{{ url('/planets/' . $name) }}">{{ ucfirst($name) }}</a> - {{ $description }}
+                <!-- Access name and description as object properties -->
+                <a href="{{ url('/planets/' . $planet->name) }}">{{ ucfirst($planet->name) }}</a> - {{ $planet->description }}
             </li>
         @endforeach
     </ul>

@@ -12,5 +12,6 @@
 
     <a href="{{ route('planets.index') }}">Back to All Planets</a>
 
+
 </body>
 </html>
