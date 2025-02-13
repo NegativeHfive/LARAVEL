@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Planet;
 
 class PlanetController extends Controller
 {
@@ -11,8 +12,8 @@ class PlanetController extends Controller
     public function index()
     {
         // Fetch all planets from the database
-        $planets = DB::table('planets')->get(); // Returns a collection of stdClass objects
-
+        //$planets = DB::table('planets')->get(); // Returns a collection of stdClass objects
+        $planets = Planet::all();
         return view('planets.index', ['planets' => $planets]);
     }
 
