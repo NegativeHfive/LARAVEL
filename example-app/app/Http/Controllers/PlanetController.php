@@ -23,7 +23,7 @@ class PlanetController extends Controller
         $planet = strtolower($planet); // Ensure case-insensitive lookup
 
         // Fetch the planet by name from the database
-        $planetData = DB::table('planets')->where('name', ucfirst($planet))->first();
+        $planetData = Planet::table('planets')->where('name', ucfirst($planet))->first();
         
         if ($planetData) {
             return view('planets.show', [
