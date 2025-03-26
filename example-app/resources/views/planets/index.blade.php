@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Planets</title>
+    <title>Planets</title>
 </head>
 <body>
 
-    <h1>Planets</h1>
+    <h1>All Planets</h1>
+
     <ul>
         @foreach ($planets as $planet)
             <li>
-                <!-- Access name and description as object properties -->
-                <a href="{{ url('/planets/' . $planet->name) }}">{{ ucfirst($planet->name) }}</a> - {{ $planet->description }}
+                <a href="{{ route('planets.show', $planet->id) }}">
+                    {{ $planet->name }}
+                </a>
+                - {{ $planet->description }}
+                <br>
+                <strong>Solar System:</strong> {{ $planet->solarSystem->name ?? 'Unknown' }}
             </li>
         @endforeach
     </ul>
